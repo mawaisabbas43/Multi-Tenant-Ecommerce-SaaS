@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <title><%=store.name%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Fashion Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="/theme-02/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/theme-02/css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="/theme-02/css/owl.carousel.min.css">
+    <link href="/theme-02/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/theme-02/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Elsie+Swash+Caps:400,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <!-- product page same -->
+    <!--   payment page     -->
+    <link href="/theme-02/css/checkout.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="/theme-02/css/easy-responsive-tabs.css" type="text/css" media="all" />
+    <!--   men page     -->
+    <link href="/theme-02/css/flexslider.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="/theme-02/css/jquery-ui1.css">
+     <!--   contact page same    -->
+    <!--   about page same    -->
+    <!--   checkout page same    -->
+
+ <!-- Favicon-->
+   <%if(store.logo.url!=null){%> 
+      <link
+      rel="shortcut icon"
+      type="image/png"
+      href="<%=store.logo.url%>"
+      />
+   <%}else{%>
+      <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/theme-02/images/logo.png"
+      />
+   <%}%>
+
+</head>
+
+
+
+  <body>
+    <div class="super_container">
+      <section>
+        <% include ./partials/navbar2 %>
+         <%- body -%> 
+         
+         <% include ./partials/footer %>
+         
+      </section>
+    </div>
+   
+    <%include ./partials/javascriptonly%>
+
+ </body>
+</html>

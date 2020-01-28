@@ -1,0 +1,82 @@
+
+	<!--search jQuery-->
+	<script src="/theme-03/js/main.js"></script>
+	<!--//search jQuery-->
+	<!--smooth-scrolling-of-move-up-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+	<!--//smooth-scrolling-of-move-up-->
+	<!--Bootstrap core JavaScript
+    ================================================== -->
+    <!--Placed at the end of the document so the pages load faster -->
+	<script src="/theme-03/js/bootstrap.js"></script>
+	<!-- products-page  -->
+	<!-- the jScrollPane script -->
+	<script type="text/javascript" src="/theme-03/js/jquery.jscrollpane.min.js"></script>
+			<script type="text/javascript" id="sourcecode">
+				$(function()
+				{
+					$('.scroll-pane').jScrollPane();
+				});
+			</script>
+	<!-- //the jScrollPane script -->
+	<script type="text/javascript" src="/theme-03/js/jquery.mousewheel.js"></script>
+	<!-- the mousewheel plugin -->
+
+
+	<!-- --------------------------------------------------------------------------------- -->
+
+
+    <!--close-button-->
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.cart-header').fadeOut('slow', function(c){
+	  		$('.cart-header').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.cart-header1').fadeOut('slow', function(c){
+	  		$('.cart-header1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.cart-header2').fadeOut('slow', function(c){
+	  		$('.cart-header2').remove();
+		});
+	});	  
+});
+</script>
+
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smooth-scrolling-->
+	<script>
+	 new WOW().init();
+	</script>
+
+    <script>
+// Can also be used with $(document).ready()

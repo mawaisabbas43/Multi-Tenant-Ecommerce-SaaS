@@ -1,0 +1,13 @@
+                <%_ if(items){_%>
+                        <%_ items.forEach(function(item){%>
+                        <li>
+                            <a href="/<%=storeId%>/products/category/<%=item._id%>"><%= item.name %><% if(item.children&&item.children.length){%> <b class="dropdown-toggle"></b><%}%></a>
+                        <%_ if(item.children&&item.children.length){_%>
+                        <ul>  
+                        <%- include('treeView', {items: item.children}) _%>
+                          </ul><%} else{%>
+                        <%- include('treeView', {items: item.children}) _%>
+                        <%}%>
+                        </li><% _%>
+                        <%})%>
+                <%}_%>

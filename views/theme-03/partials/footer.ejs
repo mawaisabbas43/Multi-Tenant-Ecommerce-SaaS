@@ -1,0 +1,24 @@
+<!--footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-info">
+				<div class="col-md-6 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
+					<h4 class="footer-logo"><a href="/<%=storeId%>"><%=store.name%><span class="tag"><%=store.description%> </span> </a></h4>
+					<p>© <%=new Date().getFullYear()%> <%=store.name%> . All rights reserved</a></p>
+				</div>
+				<div class="col-md-6 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
+					<h3>Popular</h3>
+					<ul>
+						<li><a href="/<%=storeId%>/about-us">About Us</a></li>
+						<%_ categories.forEach(function(item){%>
+						<li><a href="/<%=storeId%>/products/category/<%=item._id%>"><%= item.name %></a></li>
+						<%})%>
+						<li><a href="/<%=storeId%>/contact-us">Contact Us</a></li>
+					</ul>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--//footer-->		

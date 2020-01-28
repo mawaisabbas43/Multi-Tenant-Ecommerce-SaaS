@@ -1,0 +1,104 @@
+<!--header-->
+<div class="header">
+ 
+  <div class="header-two navbar navbar-default">
+    <!--header-two-->
+    <div class="container">
+      <div class="nav navbar-nav header-two-left">
+        <ul>
+          <%if(phone){%>
+          <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><%=phone%></li>
+          <%}%>
+          <%if(email){%>
+          <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a
+              href="mailto:<%=email%>"><%=email%></a></li>
+          <%}%>
+        </ul>
+      </div>
+      <div class="nav navbar-nav logo wow zoomIn animated" data-wow-delay=".7s">
+        <h1>
+          <%if(store.logo.url!=null){%> 
+              <a href="/<%=storeId%>">
+                     <img src="<%=store.logo.url%>" 
+                        alt="logo" 
+                        class="rounded"
+                        width="60" height="60" >
+                    </a>
+          <%}else{%>
+              <a href="/<%=storeId%>"><%=store.name%></a>
+          <%}%>
+          <span class="tag"><%=store.description%></span>
+  
+        </h1>
+      </div>
+      <div class="nav navbar-nav navbar-right header-two-right">
+        <div class="header-right my-account">
+          <a href="/<%=storeId%>/contact-us"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> CONTACT US</a>
+        </div>
+        <div class="header-right cart">
+          <a href="/<%=storeId%>/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+          <h4><a href="/<%=storeId%>/cart">
+              <span> <%= cart.formattedTotals %> </span> (<span id="simpleCart_quantity" >
+                <%= cart.items.length%> </span>)
+            </a></h4>
+          <div class="cart-box">
+            <p><a href="/<%=storeId%>/cart/empty/<%= nonce %>" >Empty cart</a></p>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <div class="top-nav navbar navbar-default">
+    <!--header-three-->
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!--navbar-header-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav top-nav-info">
+            <li><a href="/<%=storeId%>" <%if(pageName==="home"){%>class="active"<%}%> >Home</a></li>
+            <li class="dropdown" style="position:relative;">
+              <a href="#" class="dropdown-toggle <%if(pageName==="categories"){%>active<%}%>" data-toggle="dropdown" >Categories<b class="caret"></b></a>
+              <ul class="dropdown-menu" style="width:100%">
+                <div class="row">
+                  <div class="col-md-12">
+                    <nav class="vertical" style="width:100%">
+                      <ul>
+                        <%- include('./partials/treeView', {items: categories}) %>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="clearfix"> </div>
+                </div>
+              </ul>
+            </li>
+            <li><a href="/<%=storeId%>/about-us" <%if(pageName==="aboutUs"){%>class="active"<%}%> >About Us</a></li>
+            <li><a href="/<%=storeId%>/contact-us" <%if(pageName==="contactUs"){%>class="active"<%}%> >Contact Us</a></li>
+            <li><a href="/<%=storeId%>/orders" <%if(pageName==="orders"){%>class="active"<%}%>  >My Orders</a></li>
+          </ul>
+          <div class="clearfix"> </div>
+          <!--//navbar-collapse-->
+          <header class="cd-main-header">
+            <ul class="cd-header-buttons">
+              <li> <span></span></a></li>
+            </ul> <!-- cd-header-buttons -->
+          </header>
+        </div>
+        <!--//navbar-header-->
+      </nav>
+      
+    </div>
+  </div>
+</div>
+<!--//header-->

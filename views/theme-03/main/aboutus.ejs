@@ -1,0 +1,38 @@
+<% layout('theme-03/layout') -%>
+
+
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+	</div>			 
+<!--//banner-->
+<!--breadcrumbs-->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="/<%=storeId%>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">About us</li>
+			</ol>
+		</div>
+	</div>
+	<!--//breadcrumbs-->
+	<!--about-->
+	<div class="about">
+		<div class="container">
+			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+				<h3 class="title">About<span> Us</span></h3>
+				<p><%=aboutUs.description%></p>
+			</div>
+			<div class="about-info">
+				<p><%=aboutUs.info%></p>
+				<h4>More About Us </h4>
+				<p><%=aboutUs.moreInfo%></p>
+			</div>
+		</div>
+	</div>
+	<!--//about-->

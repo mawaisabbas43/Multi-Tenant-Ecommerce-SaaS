@@ -1,0 +1,79 @@
+<% layout('theme-03/layout') -%>
+
+
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+	</div>			 
+<!--//banner-->
+<!--breadcrumbs-->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+				<li><a href="/<%=storeId%>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Contact Us</li>
+			</ol>
+		</div>
+	</div>
+	<!--//breadcrumbs-->
+	<!--contact-->
+	<div class="contact">
+		<div class="container">
+			<div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+				<h3 class="title">How To <span> Find Us</span></h3>
+				<p><%=contactUs.description%></p>
+			</div>
+			<iframe class="wow zoomIn animated animated" data-wow-delay=".5s" src="<%=contactUs.map%>" allowfullscreen=""></iframe>
+		</div>	
+	</div>
+	<div class="address"><!--address-->
+		<div class="container">
+			<div class="address-row">
+				<div class="col-md-6 address-left wow fadeInLeft animated" data-wow-delay=".5s">
+				<% if (message.length>0) { %>
+					<div class="alert alert-success alert-dismissible">
+						<%= message %>
+					</div>
+					<% } %>
+					<div class="address-grid">
+						<h4 class="wow fadeIndown animated" data-wow-delay=".5s">DROP US A LINE </h4>
+						<form action="/api/feedbacks/" method="post">
+							<input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" name="name" placeholder="Name" required="">
+							<input class="wow fadeIndown animated" data-wow-delay=".7s" type="text" name="email" placeholder="Email" required="">
+							<input class="wow fadeIndown animated" data-wow-delay=".8s" type="text" name="subject" placeholder="Subject" required="">
+							<textarea class="wow fadeIndown animated" data-wow-delay=".8s" placeholder="Message" name="message" required=""></textarea>
+							<input type="hidden" name="storeId" value="<%=storeId%>">
+							<input class="wow fadeIndown animated" data-wow-delay=".9s" type="submit" value="SEND">
+						</form>
+					</div>
+				</div>
+				<div class="col-md-6 address-right">
+					<div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
+						<h4>ADDRESS</h4>
+						<%contactUs.addresses.forEach(address=>{%>
+						<p><%=address%></p>
+						<br>
+						<%})%>
+					</div>
+					<div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
+						<h4>PHONE </h4>
+						<%contactUs.phones.forEach(phone=>{%>
+						<p><%=phone%></p>
+						<%})%>
+					</div>
+					<div class="address-info wow fadeInRight animated" data-wow-delay=".6s">
+						<h4>MAIL</h4>
+						<%contactUs.emails.forEach(email=>{%>
+						<p><a href="mailto:<%=email%>"><%=email%></a></p>
+						<%})%>
+					</div>
+				</div>
+			</div>	
+		</div>	
+	</div>
+	<!--//contact-->

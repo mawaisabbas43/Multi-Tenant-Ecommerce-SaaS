@@ -1,0 +1,104 @@
+<% layout('theme-03/layout') -%>
+
+<!--banner-->
+<div
+  style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+></div>
+<!--//banner-->
+<!--breadcrumbs-->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href="/<%=storeId%>"
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <li class="active">ORDER'S LIST</li>
+    </ol>
+  </div>
+</div>
+<!--//breadcrumbs-->
+<!--cart-items-->
+
+<div class="container wrapper" style="margin:8%;">
+  <div class="">
+    <h1
+      style="color:#FF5A10; margin-bottom:10%;"
+      class="text-center text-info wow fadeInLeft animated m-5"
+    >
+      ORDER'S LIST
+    </h1>
+    <div style="border:solid;">
+      <div class="row">
+        <div class="col-md-3">
+          <h4 style="display: inline;">First Name :</h4>
+          <p style="display: inline;"><%=orders[0].fname%></p>
+        </div>
+        <div class="col-md-3">
+          <h4>Last Name :</h4>
+          <p><%=orders[0].lname%></p>
+        </div>
+        <div class="col-md-3">
+          <h4>Email:</h4>
+          <p><%=orders[0].email%></p>
+        </div>
+        <div class="col-md-3">
+          <h4>Phone :</h4>
+          <p><%=orders[0].phone%></p>
+        </div>
+      </div>
+      <div class="row">
+        <br />
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-12">
+          <table
+            style="border:1px solid;"
+            class="table table-hover table-responsive"
+          >
+            <thead class="thead-dark ">
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Order Id</th>
+                <th scope="col">Ship To</th>
+                <th scope="col">Order Total</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">View Order</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%orders.forEach(order=>{%>
+              <tr>
+                <th scope="row"><%=order.date%></th>
+                <td><%=order._id%></td>
+                <td>
+                  <%=order.address%>,<%=order.city%>,zip:<%=order.zip%>,<%=order.state%>,<%=order.country%>
+                </td>
+                <td><%=order.formattedTotals%></td>
+                <td><%=order.status%></td>
+                <td>
+                  <a
+                    type="button"
+                    href="/<%=storeId%>/myorders/id/<%=order._id%>"
+                    class="btn btn-primary btn-sm"
+                    >View Order</a
+                  >
+                </td>
+              </tr>
+              <%})%>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="col-md-1"></div> -->
+      </div>
+    </div>
+  </div>
+</div>

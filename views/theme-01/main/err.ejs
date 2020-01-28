@@ -1,0 +1,27 @@
+<% layout('theme-01/layout') -%>  
+  
+   <!--banner -->
+    <div  style="text-align: center;
+    background: url(/theme-01/images/b2.jpg) no-repeat center;
+    background-size: cover;
+    margin:none;
+    padding:none;
+    min-height: 350px;"
+    >
+    </div>
+    <!--//banner -->
+  <!-- error page -->
+<div calss="">
+<div class="err-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h1>Oops!</h1>
+                <span class="display-1 d-block"><%=code%></span>
+                <div class="mb-4 lead"><%=message%></div>
+                <a  href="/<%=storeId%>" class="btn btn-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

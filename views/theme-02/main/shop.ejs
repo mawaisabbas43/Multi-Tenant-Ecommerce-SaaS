@@ -1,0 +1,104 @@
+<% layout('theme-02/layout') -%>
+
+
+
+	<!-- inner banner -->
+	<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-02/images/inner_ban.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+	class="">
+	</div>
+	<!-- //inner banner -->
+	<!-- breadcrumbs -->
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/<%=storeId%>">Home/</a>
+			</li>
+			<%_ancestors.forEach(function(ancestor){%>
+					<li><a href="/<%=storeId%>/products/category/<%=ancestor._id%>"><%=ancestor.name%>/</a></li>
+				<%})_%>
+				<li class="breadcrumb-item active" aria-current="page"><a href="/<%=storeId%>/products/category/<%=category._id%>"><%=category.name%></a></li>
+		</ol>
+	</nav>
+	<!-- //breadcrumbs -->
+	
+
+
+	<!-- Shop -->
+	<div class="innerf-pages section">
+		<div class="fh-container mx-auto">
+			<div class="row my-lg-5 mb-5">
+				<!-- grid left -->
+				<div class="side-bar col-lg-3">
+					<!--preference -->
+					<div class="left-side">
+						<h3 class="shopf-sear-headits-sear-head">
+							RELATED CATEGORIES</h3>
+						<ul>
+						<%rCategories.forEach(rCategory=>{%>
+							<li>
+								<a
+								href="/<%=storeId%>/products/category/<%=rCategory._id%>"><%=rCategory.name%></a>
+							</li>
+							<%})%>
+						
+
+						</ul>
+					</div>
+					<!-- // preference -->
+					<div class="search-hotel">
+						<h3 class="shopf-sear-headits-sear-head">
+							CATEGORIES YOU MAY LIKE</h3>
+							<ul>
+							<%_ancestors.forEach(function(ancestor){%>
+							<li>
+								<a
+								href="/<%=storeId%>/products/category/<%=ancestor._id%>"><%=ancestor.name%></a>
+							</li>
+							<%})%>
+							</ul>
+						
+					</div>
+	
+				</div>
+				<!-- //grid left -->
+				<!-- grid right -->
+				<div class="col-lg-9 mt-lg-0 mt-5 right-product-grid">
+					<!-- card group  -->
+					<ul>
+						
+					
+					<div class="card-group">
+					<%products.forEach(function(product){%>
+						<!-- card -->
+						<div class="col-lg-3 col-sm-6 p-1 mt-3 mb-3">
+							<div class="card product-men p-3">
+								<div class="men-thumb-item">
+									<a href="/<%=storeId%>/products/<%=product._id%>"><img src="<%=product.images[0].url%>" alt="img" class="card-img-top"></a>
+									<div class="men-cart-pro">
+										<div class="inner-men-cart-pro">
+										<li><a class="link-product-add-cart" href="/<%=storeId%>/products/<%=product._id%>">Quick View </a></li>
+										
+										</div>
+									</div>
+								</div>
+								<!-- card body -->
+								<div class="card-body  py-3 px-2">
+									<h5 class="card-title text-capitalize"><a class="name" href="/<%=storeId%>/products/<%=product._id%>"><%=product.fname%></a></h5>
+									<p class="text-left text-dark font-weight-bold">$<%=product.price%></p>
+								</div>
+								<!-- card footer -->
+								
+							</div>
+						</div>
+						<!-- //card -->
+						<%})%>
+					</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--// Shop -->

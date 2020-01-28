@@ -1,0 +1,136 @@
+<% layout('theme-03/layout') -%>
+
+
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+	</div>			 
+<!--//banner-->
+<!--breadcrumbs-->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href="/<%=storeId%>"
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <li class="active">ORDER'S SUMMARY</li>
+    </ol>
+  </div>
+</div>
+<!--//breadcrumbs-->
+<!--cart-items-->
+
+<div class="container wrapper" style="margin:8%;">
+   <h1 style="color:#FF5A10;" class="text-center text-info wow fadeInLeft animated m-5">
+                ORDER'S SUMMARY
+                </h1>
+  <div class="row">
+               
+          <div  class="col-md-2"></div>
+                <div style="border: 1px solid black;border-radius: 5px; margin-top:4%; padding-top:4%;" class="col-md-8">
+                    <div  class="row">
+                        
+                          <div  class="col-md-12">
+                          <div class="font-weight-bold text-center pt-2">
+                                <h3>ORDER DETAILS</h3><hr>
+                            </div><br>
+                          <div style="">
+                             
+                            <div style="display: flex;
+                                        
+                                        align-content: left;">
+                                <h4 style="margin-right:2%; margin-left:1%;">Total:</h4> <%=order.formattedTotals%>
+                                
+                                <h4 style="margin-right:2%; margin-left:1%;">Order status:</h4><%=order.status%>
+                                <h4 style="margin-right:2%; margin-left:1%;">Order date:</h4><%=order.date%>
+                            </div>
+                            <div style="display: flex;
+                                        
+                                        align-content: left;">
+                                <h4 style="margin-right:2%; margin-left:1%;">Name: </h4> <%=order.fname%> <%=order.lname%> 
+                               
+                                <h4 style="margin-right:2%; margin-left:1%;">Phone: </h4> <%=order.phone%>
+                                <h4 style="margin-right:2%; margin-left:1%;">Email: </h4> <%=order.email%>
+                                
+                            </div>
+                            <div style="display: flex;
+                                        
+                                        align-content: left;">
+                              <h4 style="margin-right:2%; margin-left:1%;">Address: </h4>
+                               <%=order.address%>
+                                <%=order.city%>,zip:<%=order.zip%>,<%=order.state%>
+                                <%=order.country%>
+                                
+                              <br />
+                            </div>
+                            <div style="display: flex;
+                                        
+                                        align-content: left;">
+                                 <h4 style="margin-right:2%; margin-left:1%;">Payment-method: </h4> <%=order.paymentType%>
+                                
+                            </div>
+                            </div>
+                             <hr />
+             <div class="text-center">
+              <h3 class="font-weight-bold">PRODUCT LIST</h3>
+              <hr />
+            </div>
+                          </div>
+                        
+                    </div>
+                     <table class="table table-hover">
+                        <thead class="">
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Img</th>
+                            <th scope="col">Variant</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">View Product</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%order.items.forEach(product=>{%>
+                            <tr>
+                            
+                            <td><%=product.item.fname%></td>
+                            <td><img 
+                                  src="<%=product.item.images[0].url%>"
+                                  alt="<%=product.item.images[0].caption%>"
+                                  style="width:60px; height:60px;"  
+                                  class="rounded"
+                                  width="60" height="60"
+                                  ></td>
+                            <td><b><%=product.variant.name%>:</b>
+                                <%=product.variant.option%></td>
+                            <td>$<%=product.item.price%></td>
+                            <td><%=product.qty%></td>
+                             <td><%=product.subTotal%></td>
+                             <td><a
+                                type="button"
+                                href="/<%=storeId%>/products/<%=product.item._id%>"
+                                class="btn btn-primary btn-sm"
+                                >View Product</a
+                                ></button>
+                             </td>
+                            </tr> 
+                            <%})%> 
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
+  </div>
+  
+</div>

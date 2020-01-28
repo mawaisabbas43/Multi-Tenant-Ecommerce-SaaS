@@ -1,0 +1,272 @@
+<% layout('theme-02/layout') -%>
+
+	<!-- inner banner -->
+	<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-02/images/inner_ban.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+	class="">
+	</div>
+	<!-- //inner banner -->
+    <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+               <a href="/<%=storeId%>"> Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"><a href=""><%=product.fname%></a></li>
+        </ol>
+    </nav>
+    <!-- //breadcrumbs -->
+    <!-- Single -->
+    <div class="innerf-pages section py-5">
+        <div class="container">
+            <div class="row my-sm-5">
+                <div class="col-lg-4 single-right-left">
+                    <div class="grid /theme-02/images_3_of_2">
+                        <div class="flexslider1">
+                            <ul class="slides">
+                                <%product.images.forEach(function(image){%>
+                                <li data-thumb="<%=image.url%>">
+                                    <div class="thumb-image">
+                                        <img src="<%=image.url%>" data-imagezoom="true" alt="<%=image.caption%>" class="img-fluid"> </div>
+                                </li>
+                                <%})%>
+                                <!-- <li data-thumb="/theme-02/images/ms2.jpg">
+                                    <div class="thumb-image">
+                                        <img src="/theme-02/images/ms2.jpg" data-imagezoom="true" alt=" " class="img-fluid"> </div>
+                                </li>
+                                <li data-thumb="/theme-02/images/ms3.jpg">
+                                    <div class="thumb-image">
+                                        <img src="/theme-02/images/ms3.jpg" data-imagezoom="true" alt=" " class="img-fluid"> </div>
+                                </li> -->
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-lg-0 mt-5 single-right-left simpleCart_shelfItem">
+                            <h3><%=product.fname%></h3>
+                            <p><%=product.lname%></p>
+                        <hr>
+                         <p ><span class="text-info font-weight-bold">Summary:</span><%=product.summary%>
+                      </p>
+                     <p><span class="text-info font-weight-bold">Remaining Item:</span><%=product.count%></p>
+                     
+                     <p><span class="text-info font-weight-bold">SKU#:</span><%=product.sku%></p>
+                                 <form action="/<%=storeId%>/cart" method="POST">
+                                <%_product.variants.forEach(function(variant){%>
+                               
+                                  <div class="">
+									 <p class="text-info font-weight-bold"><%=variant.name%><span class="text-danger">*</span></p>
+                                        <%_var i=1;%>
+                                        <%variant.options.forEach(function(option){%>
+										<div>
+										  <input 
+                                          type="radio" 
+                                          id="<%=option%>" 
+                                          name="<%=variant.name%>" 
+                                          value="<%=option%>"
+                                          <%if(i==1){%> checked <%}%> 
+                                          >
+										  <label for="<%=option%>"><%=option%></label>
+										</div>
+                                       <%i++;})%>
+									
+								    </div>
+                                    <%})%>
+                                    
+                                        
+									
+                                    
+                                <div class="mt-3">
+                                
+                                        <h1 class="text- font-weight-bold">Price: $<%=product.price%></h1>
+                                        </br>
+
+                                    
+                                         <input
+                                            type="hidden"
+                                            name="productId"
+                                            value="<%= product._id %>"
+                                        />
+                                        <input type="hidden" name="nonce" value="<%= nonce %>" />
+                                        <input type="hidden" name="storeId" value="<%=storeId%>"/>
+									    <div class="">
+                                            
+                                            <label for="Color2" class="text-info font-weight-bold">Quantity: </label>  
+                                            <input
+                                                type="number"
+                                                class="item_quantity"
+                                                min="1"
+                                                max="<%=product.count%>"
+                                                name="qty"
+                                                value="1"
+                                             />
+                                            </div><br>
+                                       
+                                        <button class="btn btn-info btn-lg" role="button" type="submit" <%if(product.count==0){%> disabled <%}%>>ADD TO CART</button>
+                                </form>
+                                
+                                </div>
+                    </div>
+                   
+                        
+                    </div>
+                    <!-- product details in tabs form start -->
+			<div class="mt-12 mt-5">
+            
+			<div class="p-3 mb-2 bg-secondary text-white">
+			Description
+			</div>
+			<div>
+			<%=product.description%>
+			</div>
+			<div class="p-3 mb-2 bg-secondary text-white mt-5">
+			More information
+			</div>
+			<!-- start table-->
+			<div class="col-xs-12">
+			  <div class="table-responsive">
+				<table class="table table-bordered table-hover">
+				  <tbody>
+                  <tr>
+								<th>Name</th>
+								<th>Value</th>
+							</tr>
+                  <%product.attributes.forEach(function(attribute){%>
+					        <tr>
+								<td><%=attribute.name%></td>
+								<td><%=attribute.value%></td>
+							</tr>
+							<%})%>
+				  </tbody>
+				 
+				</table>
+			   </div>
+			  
+			  <!--end of .table-responsive-->
+            </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- /new_arrivals -->
+    <div class="section singlep_btm pb-5">
+        <div class="container">
+            <div class="new_arrivals">
+                <h4 class="rad-txt text-capitalize">you may also be interested in
+                </h4>
+                <!-- card group 2 -->
+                <div class="card-group my-5">
+                    <!-- card -->
+                    <%if(rProducts[0]){%>
+                    <div class="col-lg-3 col-sm-6 p-1 mt-3 mb-3">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                               
+                                <a href="/<%=storeId%>/products/<%=rProducts[0]._id%>"><img src="<%=rProducts[0].images[0].url%>" class="card-img-top" alt="<%=rProducts[0].images[0].caption%>"/></a>
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                      <a class="link-product-add-cart" href="/<%=storeId%>/products/<%=rProducts[0]._id%>">Quick View </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card body -->
+								<div class="card-body  py-3 px-2">
+									<h5 class="card-title text-capitalize"><a class="name" href="/<%=storeId%>/products/<%=rProducts[0]._id%>"><%=rProducts[0].fname%></a></h5>
+									<p class="text-left text-dark font-weight-bold">$<%=product.price%></p>
+								</div>
+							<!-- card footer -->
+                           
+                        </div>
+                    </div>
+                    <%}%> 
+                    <!-- //card -->
+                     <!-- card -->
+                     <%if(rProducts[1]){%>
+                    <div class="col-lg-3 col-sm-6 p-1 mt-3 mb-3">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                               
+                                <a href="/<%=storeId%>/products/<%=rProducts[1]._id%>"><img src="<%=rProducts[1].images[0].url%>" class="card-img-top" alt="<%=rProducts[1].images[0].caption%>"/></a>
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                      <a class="link-product-add-cart" href="/<%=storeId%>/products/<%=rProducts[1]._id%>">Quick View </a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                           <!-- card body -->
+								<div class="card-body  py-3 px-2">
+									<h5 class="card-title text-capitalize"><a class="name" href="/<%=storeId%>/products/<%=rProducts[1]._id%>"><%=rProducts[1].fname%></a></h5>
+									<p class="text-left text-dark font-weight-bold">$<%=product.price%></p>
+								</div>
+							<!-- card footer -->
+                            
+                        </div>
+                    </div>
+                    <%}%> 
+                    <!-- //card -->
+                     <!-- card -->
+                     <%if(rProducts[2]){%>
+                    <div class="col-lg-3 col-sm-6 p-1 mt-3 mb-3">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                               
+                                <a href="/<%=storeId%>/products/<%=rProducts[2]._id%>"><img src="<%=rProducts[2].images[0].url%>" class="card-img-top" alt="<%=rProducts[2].images[0].caption%>"/></a>
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                      <a class="link-product-add-cart" href="/<%=storeId%>/products/<%=rProducts[2]._id%>">Quick View </a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                           <!-- card body -->
+								<div class="card-body  py-3 px-2">
+									<h5 class="card-title text-capitalize"><a class="name" href="/<%=storeId%>/products/<%=rProducts[2]._id%>"><%=rProducts[2].fname%></a></h5>
+									<p class="text-left text-dark font-weight-bold">$<%=product.price%></p>
+								</div>
+							<!-- card footer -->
+                           
+                        </div>
+                    </div>
+                    <%}%> 
+                    <!-- //card -->
+                     <!-- card -->
+                     <%if(rProducts[3]){%>
+                    <div class="col-lg-3 col-sm-6 p-1 mt-3 mb-3">
+                        <div class="card product-men p-3">
+                            <div class="men-thumb-item">
+                               
+                                <a href="/<%=storeId%>/products/<%=rProducts[3]._id%>"><img src="<%=rProducts[3].images[0].url%>" class="card-img-top" alt="<%=rProducts[3].images[0].caption%>"/></a>
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                      <a class="link-product-add-cart" href="/<%=storeId%>/products/<%=rProducts[3]._id%>">Quick View </a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card body -->
+								<div class="card-body  py-3 px-2">
+									<h5 class="card-title text-capitalize"><a class="name" href="/<%=storeId%>/products/<%=rProducts[3]._id%>"><%=rProducts[3].fname%></a></h5>
+									<p class="text-left text-dark font-weight-bold">$<%=product.price%></p>
+								</div>
+							<!-- card footer -->
+                            
+                            </div>
+                    </div>
+                    <%}%> 
+                    <!-- //card -->
+                   
+                </div>
+                <!-- //card group -->
+                <!--//new_arrivals-->
+            </div>
+        </div>
+    </div>
+    <!--// Single -->

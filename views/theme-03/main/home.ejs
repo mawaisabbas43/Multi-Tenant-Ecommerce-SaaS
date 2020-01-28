@@ -1,0 +1,164 @@
+<% layout('theme-03/layout') -%>
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+      
+	</div>
+ 		 
+<!--//banner-->
+<!--new-->
+<div class="new">
+  <div class="container">
+    <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+      <h3 class="title">New <span>Arrivals</span></h3>
+    </div>
+    <div class="new-info">
+      <%_var i=0;%> <%_ for(i=0;i<4&&i<newArrivals.length;i++){let product=newArrivals[i];%>
+      <%if(i==0){%>
+      <div
+        class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated animated"
+        data-wow-delay=".5s"
+        style="visibility: visible; animation-delay: 0.5s; animation-name: flipInY;"
+      >
+        <%} else if(i==1){%>
+        <div
+          class="col-md-3 new-grid new-mdl simpleCart_shelfItem wow flipInY animated animated"
+          data-wow-delay=".7s"
+          style="visibility: visible; animation-delay: 0.7s; animation-name: flipInY;"
+        >
+          <%} else if(i==2){%>
+          <div
+            class="col-md-3 new-grid new-mdl1 simpleCart_shelfItem wow flipInY animated animated"
+            data-wow-delay=".9s"
+            style="visibility: visible; animation-delay: 0.9s; animation-name: flipInY;"
+          >
+            <%} else if(i==3){%>
+            <div
+              class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated animated"
+              data-wow-delay="1.1s"
+              style="visibility: visible; animation-delay: 1.1s; animation-name: flipInY;"
+            >
+              <%}%>
+              <div class="new-top">
+                <a href="/<%=storeId%>/products/<%=product._id%>"
+                  ><img
+                    src="<%=product.images[0].url%>"
+                    class="img-responsive"
+                    alt="<%=product.images[0].caption%>"
+                /></a>
+                <div class="new-text">
+                  <div>
+                    <ul>
+                      <li>
+                        <a href="/<%=storeId%>/products/<%=product._id%>"
+                          >Quick View
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="new-bottom">
+                <h5>
+                  <a class="name" href="/<%=storeId%>/products/<%=product._id%>"
+                    ><%=product.fname%></a
+                  >
+                </h5>
+                <div class="ofr">
+                  <!-- <p class="pric1"><del>$2000.00</del></p> -->
+                  <p><span class="item_price">$<%=product.price%></span></p>
+                </div>
+              </div>
+            </div>
+            <%_ }%>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <!--//new-->
+      <!--gallery-->
+      <div class="gallery">
+        <div class="container">
+          <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+            <h3 class="title">Popular<span> Products</span></h3>
+          </div>
+          <div class="gallery-info">
+        <%_var j=0,k=i,l=0;%> <%_ for(;i<12&&i<popular.length+newArrivals.length;i++){%>
+			<%if(j<popular.length){var product=popular[j];%>
+			<%}else{var product=newArrivals[k];k++}%>
+            <%if(l%4==0){%>
+				<div
+					class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated animated"
+					data-wow-delay=".5s"
+					style="margin-top: 1em; visibility: visible; animation-delay: 0.5s; animation-name: flipInY;"
+				>
+              <%} else if(l%4==1){%>
+				<div
+					class="col-md-3 new-grid new-mdl simpleCart_shelfItem wow flipInY animated animated"
+					data-wow-delay=".7s"
+					style="margin-top: 1em; visibility: visible; animation-delay: 0.7s; animation-name: flipInY;"
+			  	>
+                <%} else if(l%4==2){%>
+				<div
+					class="col-md-3 new-grid new-mdl1 simpleCart_shelfItem wow flipInY animated animated"
+					data-wow-delay=".9s"
+					style="margin-top: 1em; visibility: visible; animation-delay: 0.9s; animation-name: flipInY;"
+				  >
+                  <%} else if(l%4==3){%>
+					<div
+					class="col-md-3 new-grid simpleCart_shelfItem wow flipInY animated animated"
+					data-wow-delay="1.1s"
+					style="margin-top: 1em; visibility: visible; animation-delay: 1.1s; animation-name: flipInY;"
+				  >
+                    <%}%>
+            <div class="new-top">
+
+						<a href="/<%=storeId%>/products/<%=product._id%>">
+            <img
+							src="<%=product.images[0].url%>"
+							alt="<%=product.images[0].caption%>"
+							class="img-responsive"
+						/>
+            </a>
+						<div class="new-text">
+						  <div>
+							<ul>
+							  <li>
+								<a href="/<%=storeId%>/products/<%=product._id%>"
+								  >Quick View
+								</a>
+							  </li>
+							</ul>
+						  </div>
+						</div>
+					  </div>
+					  <div class="new-bottom">
+						<h5>
+						  <a class="name" href="/<%=storeId%>/products/<%=product._id%>">
+              <%=product.fname%>
+              </a>
+						</h5>
+						<div class="ofr">
+						  <!-- <p class="pric1"><del>$2000.00</del></p> -->
+						  <p><span class="item_price">$<%=product.price%></span></p>
+						</div>
+					  </div>
+					</div>
+                  <%j++;l++;}%>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+            <!--//gallery-->
+            <!--trend-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

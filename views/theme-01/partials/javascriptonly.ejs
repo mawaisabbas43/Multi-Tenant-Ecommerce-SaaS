@@ -1,0 +1,239 @@
+
+
+      <script src="/theme-01/js/imagezoom.js"></script>
+            <!-- FlexSlider -->
+            <script src="/theme-01/js/jquery.flexslider.js"></script>
+            <script>
+               // Can also be used with $(document).ready()
+               $(window).load(function () {
+                  $('.flexslider1').flexslider({
+                     animation: "slide",
+                     controlNav: "thumbnails"
+                  });
+               });
+            </script>
+            <!-- //FlexSlider-->
+
+      <!--js working-->
+      <script src='/theme-01/js/jquery-2.2.3.min.js'></script>
+      <!--//js working-->
+      <!-- cart-js -->
+      <script src="/theme-01/js/minicart.js"></script>
+      
+      <!-- //cart-js -->
+      <!--responsiveslides banner-->
+      <script src="/theme-01/js/responsiveslides.min.js"></script>
+      <script>
+         // You can also use "$(window).load(function() {"
+         $(function () {
+         	// Slideshow 4
+         	$("#slider4").responsiveSlides({
+         		auto: true,
+         		pager:false,
+         		nav:true ,
+         		speed: 900,
+         		namespace: "callbacks",
+         		before: function () {
+         			$('.events').append("<li>before event fired.</li>");
+         		},
+         		after: function () {
+         			$('.events').append("<li>after event fired.</li>");
+         		}
+         	});
+         
+         });
+      </script>
+      <!--// responsiveslides banner-->	 
+      <!--slider flexisel -->
+      <script src="/theme-01/js/jquery.flexisel.js"></script>
+      <script>
+         $(window).load(function() {
+         	$("#flexiselDemo1").flexisel({
+         		visibleItems: 3,
+         		animationSpeed: 3000,
+         		autoPlay:true,
+         		autoPlaySpeed: 2000,    		
+         		pauseOnHover: true,
+         		enableResponsiveBreakpoints: true,
+         		responsiveBreakpoints: { 
+         			portrait: { 
+         				changePoint:480,
+         				visibleItems: 1
+         			}, 
+         			landscape: { 
+         				changePoint:640,
+         				visibleItems:2
+         			},
+         			tablet: { 
+         				changePoint:768,
+         				visibleItems: 2
+         			}
+         		}
+         	});
+         	
+         });
+      </script>
+      <!-- //slider flexisel -->
+      <!-- start-smoth-scrolling -->
+      <script src="/theme-01/js/move-top.js"></script>
+      <script src="/theme-01/js/easing.js"></script>
+      <script>
+         jQuery(document).ready(function ($) {
+         	$(".scroll").click(function (event) {
+         		event.preventDefault();
+         		$('html,body').animate({
+         			scrollTop: $(this.hash).offset().top
+         		}, 900);
+         	});
+         });
+      </script>
+      <!-- start-smoth-scrolling -->
+      <!-- here stars scrolling icon -->
+      <script>
+         $(document).ready(function () {
+         
+         	var defaults = {
+         		containerID: 'toTop', // fading element id
+         		containerHoverID: 'toTopHover', // fading element hover id
+         		scrollSpeed: 1200,
+         		easingType: 'linear'
+         	};
+         	$().UItoTop({
+         		easingType: 'easeOutQuart'
+         	});
+         
+         });
+      </script>
+      <!-- //here ends scrolling icon -->
+      <!--bootstrap working-->
+      <script src="/theme-01/js/bootstrap.min.js"></script>
+      <!-- //bootstrap working-->
+
+
+
+          <!--quantity-->
+          <script>
+            $('.value-plus').on('click', function () {
+               var divUpd = $(this).parent().find('.value'),
+                  newVal = parseInt(divUpd.text(), 10) + 1;
+               divUpd.text(newVal);
+            });
+            
+            $('.value-minus').on('click', function () {
+               var divUpd = $(this).parent().find('.value'),
+                  newVal = parseInt(divUpd.text(), 10) - 1;
+               if (newVal >= 1) divUpd.text(newVal);
+            });
+         </script>
+         <!--quantity-->
+         <!--closed-->
+         <script>
+            $(document).ready(function (c) {
+               $('.close1').on('click', function (c) {
+                  $('.rem1').fadeOut('slow', function (c) {
+                     $('.rem1').remove();
+                  });
+               });
+            });
+         </script>
+         <script>
+            $(document).ready(function (c) {
+               $('.close2').on('click', function (c) {
+                  $('.rem2').fadeOut('slow', function (c) {
+                     $('.rem2').remove();
+                  });
+               });
+            });
+         </script>
+         <script>
+            $(document).ready(function (c) {
+               $('.close3').on('click', function (c) {
+                  $('.rem3').fadeOut('slow', function (c) {
+                     $('.rem3').remove();
+                  });
+               });
+            });
+         </script>
+         <!--//closed-->
+         <!-- start-smoth-scrolling -->
+         <script src="/theme-01/js/move-top.js"></script>
+         <script src="/theme-01/js/easing.js"></script>
+         <script>
+            jQuery(document).ready(function ($) {
+               $(".scroll").click(function (event) {
+                  event.preventDefault();
+                  $('html,body').animate({
+                     scrollTop: $(this.hash).offset().top
+                  }, 900);
+               });
+            });
+         </script>
+         <!-- start-smoth-scrolling -->
+
+
+           <!-- easy-responsive-tabs -->
+      <script src="/theme-01/js/easy-responsive-tabs.js"></script>
+      <script>
+         $(document).ready(function () {
+         	$('#horizontalTab').easyResponsiveTabs({
+         		type: 'default', //Types: default, vertical, accordion           
+         		width: 'auto', //auto or any width like 600px
+         		fit: true, // 100% fit in a container
+         		closed: 'accordion', // Start closed if in accordion view
+         		activate: function (event) { // Callback function if tab is switched
+         			var $tab = $(this);
+         			var $info = $('#tabInfo');
+         			var $name = $('span', $info);
+         			$name.text($tab.text());
+         			$info.show();
+         		}
+         	});
+         	$('#verticalTab').easyResponsiveTabs({
+         		type: 'vertical',
+         		width: 'auto',
+         		fit: true
+         	});
+         });
+      </script>
+      <!-- credit-card -->
+      <script src="/theme-01/js/creditly.js"></script>
+      <link rel="stylesheet" href="/theme-01/css/creditly.css" type="text/css" media="all" />
+      <script>
+         $(function () {
+         	var creditly = Creditly.initialize(
+         		'.creditly-wrapper .expiration-month-and-year',
+         		'.creditly-wrapper .credit-card-number',
+         		'.creditly-wrapper .security-code',
+         		'.creditly-wrapper .card-type');
+         
+         	$(".creditly-card-form .submit").click(function (e) {
+         		e.preventDefault();
+         		var output = creditly.validate();
+         		if (output) {
+         			// Your validated credit card output
+         			console.log(output);
+         		}
+         	});
+         });
+      </script>
+      <!-- //credit-card -->
+
+      <!-- price range (top products) -->
+		<script src="/theme-01/js/jquery-ui.js"></script>
+		<script>
+			//<![CDATA[ 
+			$(window).load(function () {
+				$("#slider-range").slider({
+					range: true,
+					min: 0,
+					max: 9000,
+					values: [50, 6000],
+					slide: function (event, ui) {
+						$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+					}
+				});
+				$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+			}); //]]>
+		</script>
+		<!-- //price range (top products) -->

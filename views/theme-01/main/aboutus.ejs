@@ -1,0 +1,42 @@
+<% layout('theme-01/layout') -%>
+
+      <!--banner -->
+      <div  style="text-align: center;
+      background: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-01/images/b2.jpg<%}%>) no-repeat center;
+      background-size: cover;
+      margin:none;
+      padding:none;
+      min-height: 350px;"
+      >
+      </div>
+      <!--//banner -->
+      <!-- short -->
+      <div class="using-border py-3">
+         <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+               <li>
+                  <a href="/<%=storeId%>" >Home</a>
+                  <span>/ </span>
+               </li>
+               <li>About</li>
+            </ul>
+         </div>
+      </div>
+      <!-- //short-->
+      <!--About -->
+      <section class="about py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">About Us</h3>
+            <div class="about-innergrid-agile text-center">
+               <p class="mb-3"><%=aboutUs.description%></p>
+            </div>
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">More About Us </h3>
+            <div class="about-innergrid-agile text-center">
+               <p class="mb-3"><%=aboutUs.moreInfo%></p>
+            </div>
+           
+         </div>
+      </section>
+      <!--//about -->
+     
+     

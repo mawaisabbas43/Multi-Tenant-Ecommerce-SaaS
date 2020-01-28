@@ -1,0 +1,173 @@
+<% layout('theme-03/layout') -%>
+
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+	</div>			 
+<!--//banner-->
+<!--breadcrumbs-->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href="/<%=storeId%>"
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <li class="active">Stripe Check Out page</li>
+    </ol>
+  </div>
+</div>
+<!--//breadcrumbs-->
+<!--cart-items-->
+
+<div class="container wrapper" style="margin-top:5%;">
+  <div class="row cart-head">
+    <div class="container">
+      <div class="row">
+        <p></p>
+      </div>
+
+      <div class="row">
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="row cart-body">
+    <form
+      class="form-horizontal"
+      method="post"
+      action="/<%=storeId%>/checkout/stripe"
+    >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!--SHIPPING METHOD-->
+        <div class="panel panel-info">
+          <div class="panel-heading">Address</div>
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <h4>Shipping Address</h4>
+              </div>
+            </div>
+            
+            
+            <div class="form-group">
+              <div class="col-md-6 col-xs-12">
+                <strong>First Name:</strong>
+                <input
+                  type="text"
+                  name="first_name"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+              <div class="span1"></div>
+              <div class="col-md-6 col-xs-12">
+                <strong>Last Name:</strong>
+                <input
+                  type="text"
+                  name="last_name"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>Address:</strong></div>
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  name="address"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <div class="col-md-12"><strong>City:</strong></div>
+              <div class="col-md-12">
+                <input type="text" name="city" class="form-control" required="" />
+              </div>
+            </div>
+             <div class="form-group">
+              <div class="col-md-12"><strong>Country:</strong></div>
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="country"
+                  required=""
+                />
+              </div>
+              </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>State:</strong></div>
+              <div class="col-md-12">
+                <input type="text" name="state" class="form-control" required="" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  name="zip_code"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>Phone Number:</strong></div>
+              <div class="col-md-12">
+                <input
+                  type="text"
+                  name="phone_number"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>Email Address:</strong></div>
+              <div class="col-md-12">
+                <input
+                  type="email"
+                  name="email_address"
+                  class="form-control"
+                  required=""
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="hidden" name="nonce" value="<%= nonce %>" />
+                <script
+                  src="//checkout.stripe.com/v2/checkout.js"
+                  class="stripe-button"
+                  data-key="<%= keyPublishable %>"
+                  data-locale="auto"
+                  data-description="Place Your Order"
+                  data-amount="<%-cart.totals%>00"
+                ></script>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--SHIPPING METHOD END-->
+      </div>
+    </form>
+  </div>
+  <div class="row cart-footer"></div>
+</div>

@@ -1,0 +1,118 @@
+<% layout('theme-01/layout') -%>
+
+<!--banner -->
+<div  style="text-align: center;
+  background: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-01/images/b2.jpg<%}%>) no-repeat center;
+  background-size: cover;
+  margin:none;
+  padding:none;
+  min-height: 350px;"
+  >
+</div>
+<!--//banner -->
+<div class="">
+          <!-- breadcrumbs -->
+<div class="using-border py-3">
+         <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+               <li>
+                  <a href="/<%=storeId%>">Home</a>
+                  <span>/ </span>
+               </li>
+               <li>VIEW ORDER</li>
+            </ul>
+         </div>
+      </div>
+    <!-- //breadcrumbs -->
+
+
+<!--  -->
+    <section class="wthree-row pt-3 pb-sm-5 w3-">
+       <div class="container">
+    <h1 class="head_agileinfo text-center text-capitalize p-5">
+      View Order by Email or OrderId
+    </h1>
+    <div class="row m-5">  
+          <div class="col-md-6 ">
+            <h1 class="head_agileinfo  text-capitalize">
+              Search by Email
+            </h1><br>
+            <form 
+            class="mt-2"
+             method="get"
+                    action="/<%=storeId%>/myorders/email"
+            >
+            <div class="form-group">
+                    <label for="formGroupExampleInput2">Enter your first name</label>
+                    <input class="form-control" 
+                            placeholder="Enter your first name"
+                            name="fname"
+                            type="text"
+                            required=""
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Enter your last name</label>
+                    <input class="form-control" 
+                            placeholder="Enter your last name"
+                            name="lname"
+                            type="text"
+                            required=""
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Enter email</label>
+                    <input class="form-control"
+                            placeholder="Enter your Email"
+                            name="email"
+                            type="email"
+                            required=""
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Enter phone number</label>
+                    <input class="form-control" 
+                            placeholder="Enter your phone"
+                            name="phone"
+                            type="text"
+                            required=""
+                    >
+                </div>
+                
+                 <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            
+          </div>
+          <div class="col-md-6 ">
+            <h1 class="head_agileinfo  text-capitalize ">
+              Search by OrderId
+            </h1><br>
+            <form class="mt-2"
+              method="get"
+              action="/<%=storeId%>/myorders/id"
+            >
+              <div class="form-group">
+                    <label for="formGroupExampleInput2">Enter OrderId</label>
+                    <input class="form-control" 
+                             placeholder="Search by OrderId"
+                    name="id"
+                    id="srch-term"
+                    type="text"
+                    required=""
+                    >
+                </div> 
+                 <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+         
+        
+      </div>
+      
+      <!--  details -->
+    </div>
+    <!-- // details container -->
+  </div>
+       
+        <!--// map grid ends here-->
+    </section>
+
+

@@ -1,0 +1,100 @@
+<% layout('theme-01/layout') -%>
+
+
+  <!--banner -->
+<div  style="text-align: center;
+  background: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-01/images/b2.jpg<%}%>) no-repeat center;
+  background-size: cover;
+  margin:none;
+  padding:none;
+  min-height: 350px;"
+  >
+</div>
+<!--//banner -->
+      <!-- short -->
+      <div class="using-border py-3">
+         <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+               <li>
+                  <a href="/<%=storeId%>">Home</a>
+                  <span> /</span>
+               </li>
+               <%_ancestors.forEach(function(ancestor){%>
+					<li><a href="/<%=storeId%>/products/category/<%=ancestor._id%>"><%=ancestor.name%>/</a></li>
+				<%})_%>
+				<li class="breadcrumb-item active" aria-current="page"><a href="/<%=storeId%>/products/category/<%=category._id%>"><%=category.name%></a></li>
+		
+            </ul>
+         </div>
+      </div>
+      <!-- //short-->
+      <!--show Now-->  
+      <!--show Now-->  
+      <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3"><%=store.name%></h3>
+            <div class="row m-4">
+               <div class="side-bar col-lg-3">
+                  <ul>
+                  <div class="sidebar-row">
+					<h4>Related Categories</h4>
+					<div class="row row1 scroll-pane">
+						<%rCategories.forEach(rCategory=>{%>
+						<label class="checkbox"><a class="text-center text-success mt-4"
+								href="/<%=storeId%>/products/category/<%=rCategory._id%>"><%=rCategory.name%></a></label>
+						<%})%>
+					</div>
+				</div>
+				<div class="sidebar-row mt-4">
+					<h4>Categories You May Like</h4>
+					<div class="row row1 scroll-pane">
+						<%_ancestors.forEach(function(ancestor){%>
+						<label class="checkbox"><a class="text-center text-success mt-4"
+								href="/<%=storeId%>/products/category/<%=ancestor._id%>"><%=ancestor.name%></a></label>
+						<%})_%>
+					</div>
+				</div>
+							</ul>
+               </div>
+               <div class="left-ads-display col-lg-9">
+                  <div class="row">
+                  <%products.forEach(function(product){%>
+                     <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
+                        <div class="product-toys-info">
+                           <div class="men-pro-item">
+                              <div class="men-thumb-item">
+                                <a href="/<%=storeId%>/products/<%=product._id%>"> <img src="<%=product.images[0].url%>" alt="img" class="img-thumbnail img-fluid" ></a>
+                                 <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                       <a  href="/<%=storeId%>/products/<%=product._id%>" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                 </div>
+                                 <span class="product-new-top">New</span>
+                              </div>
+                              <div class="item-info-product">
+                                 <div class="info-product-price">
+                                    <div class="grid_meta">
+                                       <div class="product_price">
+                                          <h4>
+                                             <a href="/<%=storeId%>/products/<%=product._id%>"><%=product.fname%></a>
+                                          </h4>
+                                          <div class="grid-price mt-2">
+                                             <span class="money ">$<%=product.price%></span>
+                                          </div>
+                                       </div>
+                                       
+                                    </div>
+                                    
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <%})%>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- //show Now-->

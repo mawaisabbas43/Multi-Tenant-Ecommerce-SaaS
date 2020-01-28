@@ -1,0 +1,135 @@
+<% layout('theme-01/layout') -%>
+
+<!--banner -->
+<div  style="text-align: center;
+  background: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-01/images/b2.jpg<%}%>) no-repeat center;
+  background-size: cover;
+  margin:none;
+  padding:none;
+  min-height: 350px;"
+  >
+</div>
+<!--//banner -->
+<div class="">
+          <!-- breadcrumbs -->
+<div class="using-border py-3">
+         <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+               <li>
+                  <a href="/<%=storeId%>">Home</a>
+                  <span>/ </span>
+               </li>
+               <li>ORDER SUMMARY</li>
+            </ul>
+         </div>
+      </div>
+    <!-- //breadcrumbs -->
+
+
+<!--  -->
+    <section class="wthree-row pt-3 pb-sm-5 w3-">
+  <div class="container">
+    <h5 class="head_agileinfo text-center text-capitalize pb-5">
+      ORDER'S SUMMARY
+    </h5>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10 border border-dark m-4">
+            <div class="font-weight-bold text-center pt-2">
+              <h5 class="font-weight-bold">ORDER SUMMARY</h5>
+              <hr />
+            </div>
+            <div class="d-flex justify-content-between text-center">
+              <h4 class=""><b>Total:</b> <%=order.formattedTotals%></h4>
+
+              <h4 class=""><b>Order status:</b> <%=order.status%></h4>
+              <h4 class=""><b>Order date:</b></h4>
+              <p><%=order.date%></p>
+            </div>
+            <br />
+            <div class="d-flex justify-content-between text-center">
+              <h5 class=""><b>Name:</b> <%=order.fname%> <%=order.lname%></h5>
+              <h5 class=""><b>Phone:</b> <%=order.phone%></h5>
+              <h5 class=""><b>Email:</b> <%=order.email%></h5>
+              <br />
+              <br />
+            </div>
+
+            <div class="d-flex justify-content-between text-center">
+              <h5 class="">
+                <b>Address:</b> <%=order.address%>
+                <%=order.city%>,zip:<%=order.zip%>,<%=order.state%>
+                <%=order.country%>
+              </h5>
+              <br />
+              <br />
+            </div>
+            <div class="d-flex justify-content-between text-center">
+              <h5 class="">
+                <b>Payment method:</b>
+                <%=order.paymentType%>
+              </h5>
+              <br />
+            </div>
+            <hr />
+            <div class="text-center">
+              <h5 class="font-weight-bold">PRODUCT LIST</h5>
+            </div>
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Img</th>
+                  <th scope="col">Variant</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Sub total</th>
+                  <th scope="col">View Product</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%order.items.forEach(product=>{%>
+                <tr>
+                  <td><%=product.item.fname%></td>
+                  <td>
+                    <img
+                      src="<%=product.item.images[0].url%>"
+                      alt="<%=product.item.images[0].caption%>"
+                      class="rounded"
+                      width="60"
+                      height="60"
+                    />
+                  </td>
+                  <td>
+                    <b><%=product.variant.name%>:</b>
+                    <%=product.variant.option%>
+                  </td>
+                  <td><%=product.item.price%></td>
+                  <td><%=product.qty%></td>
+                  <td><%=product.subTotal%></td>
+                  <td><a
+                    type="button"
+                    href="/<%=storeId%>/products/<%=product.item._id%>"
+                    class="btn btn-primary btn-sm"
+                    >View Product</a
+                  ></button></td>
+                </tr>
+                <%})%>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!-- // details container -->
+  </div>
+       
+        <!--// map grid ends here-->
+    </section>
+
+

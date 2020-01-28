@@ -1,0 +1,78 @@
+<% layout('theme-01/layout') -%>  
+  
+  
+      <!--banner -->
+      <div  style="text-align: center;
+      background: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-01/images/b2.jpg<%}%>) no-repeat center;
+      background-size: cover;
+      margin:none;
+      padding:none;
+      min-height: 350px;"
+      >
+      </div>
+      <!--//banner -->
+      <!--new Arrivals -->
+      <section class="blog py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">New Arrivals</h3>
+            
+            <div class="slid-img">
+               <ul id="flexiselDemo1">
+               <%_var i=0;%> <%_ for(i=0;i<4&&i<newArrivals.length;i++){let product=newArrivals[i];%>
+               
+                  <li class="p-4">
+                     <div class="agileinfo_port_grid">
+                        <a class="img-fluid" href="/<%=storeId%>/products/<%=product._id%>"><img src="<%=product.images[0].url%>" alt="<%=product.images[0].caption%>" ></a>
+                        <div class="banner-right-icon">
+                           <h4 class="pt-3"><%=product.fname%></h4>
+                           
+                           <p>$<%=product.price%></p>
+                          
+                        </div>
+                        
+                        <div class="outs_more-buttn">
+                           <a href="/<%=storeId%>/products/<%=product._id%>">Quick View </a>
+                        </div>
+                     </div>
+                  </li>
+                  <%_ } %>
+               </ul>
+            </div>
+            
+         </div>
+      </section>
+      <!-- new popular -->
+   <section class="blog py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Popular products</h3>
+            <div class="row">
+            <%_var j=0,k=i,l=0;%> <%_ for(;i<12&&i<popular.length+newArrivals.length;i++){%>
+            <%if(j<popular.length){var product=popular[j];%>
+            <%}else{var product=newArrivals[k];k++}%>
+               <div class="col-md-3 col-sm-3 mt-2">
+                  <div class="">
+                        <a href="/<%=storeId%>/products/<%=product._id%>">
+                        <img 
+                           class="img-fluid"
+                           src="<%=product.images[0].url%>"
+							      alt="<%=product.images[0].caption%>"
+                            />
+                        </a>    
+                        <div class="banner-right-icon">
+                           <a class="name" href="/<%=storeId%>/products/<%=product._id%>">
+                           <h4 class="pt-3"><%=product.fname%></h4>
+                           </a>
+                           <p>$<%=product.price%></p>
+                        </div>
+                        
+                        <div class="outs_more-buttn">
+                           <a href="/<%=storeId%>/products/<%=product._id%>">Shop Now</a>
+                        </div>
+                     </div>
+               </div>
+               <%j++;l++;}%>
+              
+         </div>
+      </section>
+       <!--new popular -->
+    

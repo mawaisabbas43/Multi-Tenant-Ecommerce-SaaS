@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+      <title><%=store.name%></title>
+     
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="keywords" content="Toys Shop Responsive web template" />
+      <script>
+         addEventListener("load", function () {
+         	setTimeout(hideURLbar, 0);
+         }, false);
+         
+         function hideURLbar() {
+         	window.scrollTo(0, 1);
+         }
+      </script>
+ 
+      <link href="/theme-01/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+      <link href="/theme-01/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+      <link rel="stylesheet" href="/theme-01/css/flexslider.css" type="text/css" media="all" />
+      <link href="/theme-01/css/JiSlider.css" rel="stylesheet">
+      <link rel="stylesheet" href="/theme-01/css/shop.css" type="text/css" />
+      <link href="/theme-01/css/style.css" rel='stylesheet' type='text/css' media="all">
+      <!--      payment page  ------------------------> 
+      <link href="/theme-01/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+      <!--      shop page  ------------------------> 
+      <link rel="stylesheet" type="text/css" href="/theme-01/css/jquery-ui1.css">
+      <!--      checkout page   ------------------------>  
+      <link rel="stylesheet" type="text/css" href="/theme-01/css/checkout.css">
+      <!--      about page  same   ------------------------> 
+      <!--      single page same  ------------------------>
+      <!--      contact page same  ------------------------>   
+      <link href="/theme-01//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
+      <link href="/theme-01//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+   
+   <!-- Favicon-->
+   <%if(store.logo.url!=null){%> 
+      <link
+      rel="shortcut icon"
+      type="image/png"
+      href="<%=store.logo.url%>"
+      />
+   <%}else{%>
+      <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/theme-01/images/logo.png"
+      />
+   <%}%>
+     
+    
+   </head>
+
+
+
+  <body>
+    <div class="super_container">
+      <section>
+        <% include ./partials/navbar %>
+         <%- body -%> 
+         
+         <% include ./partials/footer %>
+         
+      </section>
+    </div>
+   
+    <%include ./partials/javascriopt2%>
+
+ </body>
+</html>

@@ -1,0 +1,44 @@
+<% layout('theme-02/layout') -%>
+
+<!-- inner banner -->
+	<div style="
+	background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-02/images/inner_ban.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+	class="">
+	</div>
+	<!-- //inner banner -->
+  <!-- breadcrumbs -->
+  <nav aria-label="breadcrumb ">
+      <ol class="breadcrumb text-center">
+          <li class="breadcrumb-item">
+              <a href="index.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">About</li>
+      </ol>
+  </nav>
+  <!-- //breadcrumbs -->
+ <!--services-->
+  <div class="agileits-services" >
+      <!--about-->
+	<div class="about">
+		<div class="container p-4">
+			<div class="p-3 text-center">
+				<h3 class="text-info">About<span> Us</span></h3>
+				<p class="text-info"><%=aboutUs.description%></p>
+			</div>
+			<div class="about-info">
+				<p><%=aboutUs.info%></p>
+				<h4 class="p-3 text-center text-info">More About Us </h4>
+				<p><%=aboutUs.moreInfo%></p>
+			</div>
+		</div>
+	</div>
+	<!--//about-->
+  </div>
+  <!-- //services-->
+ 
+
+  

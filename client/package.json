@@ -1,0 +1,28 @@
+{
+  "name": "FYP_Template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "joi-browser": "^13.4.0",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.4.1",
+    "react-infinite-tree": "^1.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "react-stripe-checkout": "^2.6.3",
+    "react-toastify": "^5.3.0",
+    "styled-components": "^4.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

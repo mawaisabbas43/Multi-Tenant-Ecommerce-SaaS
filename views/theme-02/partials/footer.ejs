@@ -1,0 +1,35 @@
+    <!-- footer -->
+    <footer>
+        <div class="footerv2-w3ls">
+            <div class="footer-w3lagile-innerr">
+               
+                <div class="footer-bottomv2 py-5">
+                    <div class="container">
+                        <ul class="bottom-links-agile">
+                           <li><a href="/<%=storeId%>/about-us">About Us</a></li>
+						<%_ categories.forEach(function(item){%>
+						<li><a href="/<%=storeId%>/products/category/<%=item._id%>"><%= item.name %></a></li>
+						<%})%>
+						<li><a href="/<%=storeId%>/contact-us">Contact Us</a></li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-5 footer-copy_w3ls">
+                <div class="d-flex justify-content-center">
+                   
+                    <div class=" text-center">
+                        <h2 class="agile_btxt">
+                            <a href="/">
+                                <%=store.name%>
+                                </a>
+                        </h2>
+                        <p>© <%=new Date().getFullYear()%> <%=store.name%> . All rights reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->

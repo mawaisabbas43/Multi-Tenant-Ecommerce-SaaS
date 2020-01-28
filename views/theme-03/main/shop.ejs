@@ -1,0 +1,147 @@
+<% layout('theme-03/layout') -%>
+
+
+<!--banner-->
+<div style="background-image: url(<%if(store.image.url!=null){%><%=store.image.url%><%}else{%>/theme-03/images/1.jpg<%}%>);
+				background-size: cover;
+				width: 100%;
+				height: 360px;
+				background-repeat: no-repeat;"
+        >
+	</div>			 
+<!--//banner-->
+<!--breadcrumbs-->
+<div class="breadcrumbs">
+  <div class="container">
+    <ol
+      class="breadcrumb breadcrumb1 animated wow slideInLeft"
+      data-wow-delay=".5s"
+    >
+      <li>
+        <a href="/<%=storeId%>"
+          ><span class="glyphicon glyphicon-home" aria-hidden="true"></span
+          >Home</a
+        >
+      </li>
+      <%_ancestors.forEach(function(ancestor){%>
+      <li>
+        <a href="/<%=storeId%>/products/category/<%=ancestor._id%>"
+          ><%=ancestor.name%></a
+        >
+      </li>
+      <%})_%>
+      <li class="active">
+        <a
+          style="color:white;"
+          href="/<%=storeId%>/products/category/<%=category._id%>"
+          ><%=category.name%></a
+        >
+      </li>
+    </ol>
+  </div>
+</div>
+<!--//breadcrumbs-->
+<!--products-->
+<div class="products">
+  <div class="container">
+    <div class="col-md-9 product-model-sec">
+      <%_var i=1;%> <%products.forEach(function(product){%> <%if(i%3==2){%>
+      <div
+        class="product-grids product-grids-mdl simpleCart_shelfItem wow fadeInUp animated"
+        data-wow-delay=".7s"
+      >
+        <%} else{%>
+        <div
+          class="product-grids simpleCart_shelfItem wow fadeInUp animated"
+          data-wow-delay=".5s"
+        >
+          <%}%>
+          <div class="new-top">
+            <a href="/<%=storeId%>/products/<%=product._id%>"
+              ><img
+                src="<%=product.images[0].url%>"
+                class="img-responsive"
+                alt="<%=product.images[0].caption%>"
+            /></a>
+            <div class="new-text">
+              
+                <div>
+                   <ul>
+								<li>
+								<a href="/<%=storeId%>/products/<%=product._id%>"
+									>Quick View
+								</a>
+								</li>
+              </ul>
+                </div>
+             
+            </div>
+          </div>
+          <div class="new-bottom">
+            <h5>
+              <a class="name" href="/<%=storeId%>/products/<%=product._id%>"
+                ><%=product.fname%></a
+              >
+            </h5>
+            <!-- <div class="rating">
+								<span class="on">☆</span>
+								<span class="on">☆</span>
+								<span class="on">☆</span>
+								<span class="on">☆</span>
+								<span>☆</span>
+							</div> -->
+            <div class="ofr">
+              <!-- <p class="pric1"><del>$2000.00</del></p> -->
+              <p><span class="item_price">$<%=product.price%></span></p>
+            </div>
+          </div>
+        </div>
+        <%i++;})%>
+      </div>
+      <div class="col-md-3 rsidebar">
+        <div class="rsidebar-top">
+          <div class="sidebar-row">
+            <h4>Related Categories</h4>
+            <div class="row row1 scroll-pane">
+              <%rCategories.forEach(rCategory=>{%>
+              <label class="checkbox"
+                ><a href="/<%=storeId%>/products/category/<%=rCategory._id%>"
+                  ><%=rCategory.name%></a
+                ></label
+              >
+              <%})%>
+            </div>
+          </div>
+          <div class="sidebar-row">
+            <h4>Categories You May Like</h4>
+            <div class="row row1 scroll-pane">
+              <%_ancestors.forEach(function(ancestor){%>
+              <label class="checkbox"
+                ><a href="/<%=storeId%>/products/category/<%=ancestor._id%>"
+                  ><%=ancestor.name%></a
+                ></label
+              >
+              <%})_%>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="gallery-grid ">
+					<h6>YOU MAY ALSO LIKE</h6>
+					<a href="single.html"><img src="/theme-03/images/b1.png" class="img-responsive" alt=""/></a>
+					<div class="gallery-text simpleCart_shelfItem">
+						<h5><a class="name" href="single.html">Full Sleeves Romper</a></h5>
+						<p><span class="item_price">60$</span></p>
+						<h4 class="sizes">Sizes: <a href="#"> s</a> - <a href="#">m</a> - <a href="#">l</a> - <a href="#">xl</a> </h4>
+						<ul>
+							<li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
+							<li><a class="item_add" href="#"><span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+							<li><a href="#"><span class="glyphicon glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></li>
+						</ul>
+					</div>
+				</div> -->
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!--//products-->
+</div>
